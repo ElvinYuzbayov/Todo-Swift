@@ -10,15 +10,16 @@ import Foundation
 @MainActor
 @Observable
 final class TodoViewModel{
-    var todos:[Todo] = []
+    var todos:[Todo] = [] 
     var newTitle:String = ""
+    var selectedCategory:TodoCategory = .personal
     
     //Add todo
     func addTodo(){
         let trimmed = newTitle.trimmingCharacters(in:.whitespacesAndNewlines)
         guard !trimmed.isEmpty else {return}
         
-        todos.insert(Todo(title: trimmed),at:0)
+        todos.insert(Todo(title: trimmed, category: selectedCategory),at:0)
         newTitle = ""
     }
     
@@ -28,6 +29,7 @@ final class TodoViewModel{
             todos.remove(at: index)
         }
     }
+    
     
     //Completed todo
        func completed(id:UUID){

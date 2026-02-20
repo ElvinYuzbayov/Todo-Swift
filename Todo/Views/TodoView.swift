@@ -17,6 +17,13 @@ struct TodoView: View {
                     .textFieldStyle(.roundedBorder).onSubmit {
                     vm.addTodo()
                 }
+                
+                //Picker
+                Picker("Category",selection:$vm.selectedCategory){
+                    ForEach(TodoCategory.allCases,id:\.self){cat in
+                        Text(cat.rawValue).tag(cat)}
+                }.pickerStyle(.menu)
+                
                 //Button
                 Button("Yadda saxla"){vm.addTodo()}.buttonStyle(.borderedProminent).disabled(vm.newTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             
@@ -28,7 +35,8 @@ struct TodoView: View {
                     HStack{
                         Image(systemName: todo.completed ? "checkmark.circle.fill" : "circle")
                         Text(todo.title)
-                        Spacer()
+                Spacer()
+                        Text(todo.category.rawValue)
                         }.contentShape(Rectangle()).onTapGesture{
                             withAnimation{
                                 vm.completed(id:todo.id)
