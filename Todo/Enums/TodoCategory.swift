@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TodoCategory:String,CaseIterable{
+enum TodoCategory:String,CaseIterable,Codable{
     case work = "Work"
     case education = "Education"
     case personal = "Personal"

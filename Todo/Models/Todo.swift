@@ -7,15 +7,16 @@
 
 import Foundation
 
-struct Todo:Identifiable,Equatable{
+struct Todo:Identifiable,Equatable,Codable{
 var id = UUID()
 var title:String
 var completed:Bool = false
 var category:TodoCategory
 
-    init(id:UUID=UUID(),title:String,category:TodoCategory){
+    init(id:UUID=UUID(),title:String,completed:Bool = false,category:TodoCategory){
         self.id = id
         self.title = title
+        self.completed = completed
         self.category=category
     }
 }
