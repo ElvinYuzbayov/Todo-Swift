@@ -45,6 +45,18 @@ final class TodoViewModel{
            saveTodos()
     }
     
+    //Reminder detail
+    func setReminder(todoId:UUID,date:Date?){
+        guard let index = todos.firstIndex(where:{$0.id == todoId}) else {return}
+        todos[index].remindAt = date
+        saveTodos()
+    }
+    
+    //Update Reminder
+    func updateReminder(todoId:UUID,newDate:Date){
+        setReminder(todoId:todoId,date:newDate)
+        
+    }
         
     
     // PERSISTENCE

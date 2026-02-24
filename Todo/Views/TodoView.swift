@@ -11,7 +11,7 @@ struct TodoView: View {
     @State var isFilteredSheetPresented = false
     @State var selectedFilteredCategory:TodoCategory? = nil
     
-@State private var vm = TodoViewModel()
+    @State private var vm = TodoViewModel()
     
     var visibleTodos:[Todo]{
         guard let c = selectedFilteredCategory else {return vm.todos}
@@ -21,12 +21,12 @@ struct TodoView: View {
         NavigationStack{
             VStack(){
                 HStack(){
-                  
-                   //TextField
+                    
+                    //TextField
                     TextField("Yeni todo",text:$vm.newTitle)
                         .textFieldStyle(.roundedBorder).onSubmit {
-                        vm.addTodo()
-                    }
+                            vm.addTodo()
+                        }
                     
                     //Picker
                     Picker("Category",selection:$vm.selectedCategory){
@@ -38,30 +38,51 @@ struct TodoView: View {
                     Button("Yadda saxla"){vm.addTodo()}.buttonStyle(.borderedProminent).disabled(vm.newTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 }
                 .padding()
-               //Todo list, Toggle and Delete
+                //Todo list, Toggle and Delete
                 List{
                     ForEach(visibleTodos){todo in
+                        
+                        
                         HStack{
-                            Image(systemName: todo.completed ? "checkmark.circle.fill" : "circle")
-                            Text(todo.title)
-                    Spacer()
-                            Text(todo.category.rawValue)
-                            }.contentShape(Rectangle()).onTapGesture{
+                            
+                            Button{
                                 withAnimation{
                                     vm.completed(id:todo.id)
                                 }
+                            }label:{
+                                Image(systemName: todo.completed ? "checkmark.circle.fill" : "circle").font(.title3)
+                            }.buttonStyle(.plain)
+                            
+                            NavigationLink(value:todo.id){
+                                HStack{
+                                    Text(todo.title)
+                                    Spacer()
+                                    Text(todo.category.rawValue)
+                                }  .frame(maxWidth: .infinity, alignment: .leading)
+                                
+                                
+                                
+                            }
+                            
                         }
-                            .listRowBackground(todo.completed ? Color.green.opacity(0.1) : Color.gray.opacity(0.1))
-                    }.onDelete{offsets in
+                        
+                        
+                        .listRowBackground(todo.completed ? Color.green.opacity(0.1) : Color.gray.opacity(0.1))
+                    }
+                    
+                    .onDelete{offsets in
                         let ids = offsets.map {visibleTodos[$0].id}
                         vm.deleteTodo(with:ids)
                     }
                 }
-             
-             
-            }
+                
+                
+            } .navigationDestination(for:UUID.self){id in
+                TodoDetail(todoId:id,vm:vm)}
+            
+            //Toolbar
             .toolbar{
-                 ToolbarItem(placement:.topBarTrailing){
+                ToolbarItem(placement:.topBarTrailing){
                     Button{
                         isFilteredSheetPresented = true
                     } label:{
@@ -73,7 +94,7 @@ struct TodoView: View {
             }
         }
        
-       
+        
     }
 }
 
