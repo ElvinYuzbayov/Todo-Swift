@@ -13,16 +13,14 @@ struct FilterSheetView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Category") {
-                    Picker("Category", selection: $selectedCategory) {
+               Picker("Category", selection: $selectedCategory) {
                         Text("All").tag(TodoCategory?.none)     // nil
                         ForEach(TodoCategory.allCases, id: \.self) { cat in
                             Text(cat.rawValue).tag(Optional(cat)) // TodoCategory?
                         }
                     }
-                }
-            }
-            .navigationTitle("Filters")
+                            }
+       
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
@@ -31,6 +29,13 @@ struct FilterSheetView: View {
         }
     }
 }
-//#Preview {
-//    FilterSheetView()
-//}
+#Preview {
+    PreviewWrapper()
+}
+
+private struct PreviewWrapper : View{
+    @State var category:TodoCategory? = nil
+    var body : some View{
+        FilterSheetView(selectedCategory:$category)
+    }
+}

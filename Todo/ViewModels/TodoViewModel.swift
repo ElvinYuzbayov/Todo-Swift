@@ -33,10 +33,8 @@ final class TodoViewModel{
     }
     
     //Delete todo
-    func deleteTodo(at offsets: IndexSet) {
-        for index in offsets {
-            todos.remove(at: index)
-        }
+    func deleteTodo(with ids: [UUID]) {
+        todos.removeAll{ids.contains($0.id)}
         saveTodos()
     }
     

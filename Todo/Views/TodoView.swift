@@ -22,9 +22,7 @@ struct TodoView: View {
             VStack(){
                 HStack(){
                   
-                    
-                    
-                    //TextField
+                   //TextField
                     TextField("Yeni todo",text:$vm.newTitle)
                         .textFieldStyle(.roundedBorder).onSubmit {
                         vm.addTodo()
@@ -38,7 +36,6 @@ struct TodoView: View {
                     
                     //Button
                     Button("Yadda saxla"){vm.addTodo()}.buttonStyle(.borderedProminent).disabled(vm.newTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-                
                 }
                 .padding()
                //Todo list, Toggle and Delete
@@ -55,24 +52,21 @@ struct TodoView: View {
                                 }
                         }
                             .listRowBackground(todo.completed ? Color.green.opacity(0.1) : Color.gray.opacity(0.1))
-                     }.onDelete{offsets in
-                            vm.deleteTodo(at:offsets)}
-                        
+                    }.onDelete{offsets in
+                        let ids = offsets.map {visibleTodos[$0].id}
+                        vm.deleteTodo(with:ids)
+                    }
                 }
              
              
             }
             .toolbar{
-                
-                ToolbarItem(placement:.topBarTrailing){
+                 ToolbarItem(placement:.topBarTrailing){
                     Button{
                         isFilteredSheetPresented = true
                     } label:{
                         Image(systemName: "line.3.horizontal.decrease.circle")
                     }
-                    
-                    
-                   
                 }
             }.sheet(isPresented:$isFilteredSheetPresented){
                 FilterSheetView(selectedCategory:$selectedFilteredCategory).presentationDetents([.medium,.large])
