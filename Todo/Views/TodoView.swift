@@ -78,7 +78,12 @@ struct TodoView: View {
                 
                 
             } .navigationDestination(for:UUID.self){id in
-                TodoDetail(todoId:id,vm:vm)}
+                if vm.todos.contains(where:{$0.id == id}){
+                    TodoDetail(todoId:id,vm:vm)
+                }else{
+                    Text("Todo not found")
+                }
+            }
             
             //Toolbar
             .toolbar{
@@ -93,7 +98,7 @@ struct TodoView: View {
                 FilterSheetView(selectedCategory:$selectedFilteredCategory).presentationDetents([.medium,.large])
             }
         }
-       
+        
         
     }
 }

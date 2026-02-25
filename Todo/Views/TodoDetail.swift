@@ -30,7 +30,9 @@ struct TodoDetail: View {
                     DatePicker("Time",selection: Binding(
                         get:{vm.todos[index].remindAt ?? Date()},
                         set:{newDate in vm.updateReminder(todoId: todoId, newDate: newDate )}
-                    ),displayedComponents: [.date,.hourAndMinute])
+                    ),
+                               in:Date()...,
+                               displayedComponents: [.date,.hourAndMinute])
                 }
                 
             }

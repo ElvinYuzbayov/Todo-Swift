@@ -34,6 +34,9 @@ final class TodoViewModel{
     
     //Delete todo
     func deleteTodo(with ids: [UUID]) {
+        for id in ids{
+            NotificationManager.shared.cancel(todoId: id)
+        }
         todos.removeAll{ids.contains($0.id)}
         saveTodos()
     }
@@ -48,8 +51,17 @@ final class TodoViewModel{
     //Reminder detail
     func setReminder(todoId:UUID,date:Date?){
         guard let index = todos.firstIndex(where:{$0.id == todoId}) else {return}
+        
+        NotificationManager.shared.cancel(todoId: todoId)
+        
         todos[index].remindAt = date
         saveTodos()
+        
+        // Yenini planla
+          if let date {
+              let title = todos[index].title
+              NotificationManager.shared.schedule(todoId: todoId, title: title, date: date)
+          }
     }
     
     //Update Reminder

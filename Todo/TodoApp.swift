@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct TodoApp: App {
+    init(){
+        NotificationManager.shared.requestAuthorization()
+    }
     var body: some Scene {
         WindowGroup {
             TabBarView()

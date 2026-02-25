@@ -12,7 +12,7 @@ var id = UUID()
 var title:String
 var completed:Bool = false
 var category:TodoCategory
-    var remindAt:Date?
+var remindAt:Date?
 
 
     init(id:UUID=UUID(),title:String,completed:Bool = false,category:TodoCategory){
