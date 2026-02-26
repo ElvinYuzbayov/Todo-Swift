@@ -32,10 +32,22 @@ final class TodoVmTests: XCTestCase {
         XCTAssertEqual(vm.newTitle,"")
     }
     
-//    func test_addTodo_withEmptyTitle_doesNotAdd(){
-//        vm.newTitle = "  "
-//        vm.addTodo()
-//        XCTAssertEqual(vm.todos.count,0)
-//    }
+    func test_addTodo_withEmptyTitle_doesNotAdd(){
+        let initialCount = vm.todos.count
+        vm.newTitle = ""
+        vm.addTodo()
+        XCTAssertEqual(vm.todos.count,initialCount)
+    }
+
+    func test_toggleTodo_changeStatus(){
+        vm.newTitle = "New todo"
+        vm.addTodo()
+        let id = vm.todos.last!.id
+       
+        let initialState = vm.todos.last!.completed
+        vm.completed(id:id)
+        XCTAssertEqual(vm.todos.last!.completed,!initialState)
+        
+    }
 
 }
