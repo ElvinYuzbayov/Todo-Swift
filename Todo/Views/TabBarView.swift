@@ -10,8 +10,7 @@ import SwiftUI
 struct TabBarView: View {
     @State private var vm = TodoViewModel()
   
-    
-    enum Tab:Hashable{
+   enum Tab:Hashable{
         case todos,add,settings
     }
     
@@ -20,7 +19,9 @@ struct TabBarView: View {
     @State private var isAddPresented = false
     
     var body: some View {
+        
         TabView(selection:$selectedTab){
+            
             NavigationStack{
                 TodoView(vm:vm)
                     .navigationTitle("Todos")
@@ -29,7 +30,7 @@ struct TabBarView: View {
             }.tag(Tab.todos)
             
             Color.clear.tabItem{
-                Label("Add todo",systemImage:"plus")
+                Label("Add task",systemImage:"plus")
             }.tag(Tab.add)
            
             NavigationStack{
