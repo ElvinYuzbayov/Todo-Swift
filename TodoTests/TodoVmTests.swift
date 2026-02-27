@@ -43,11 +43,19 @@ final class TodoVmTests: XCTestCase {
         vm.newTitle = "New todo"
         vm.addTodo()
         let id = vm.todos.last!.id
-       
-        let initialState = vm.todos.last!.completed
+       let initialState = vm.todos.last!.completed
         vm.completed(id:id)
         XCTAssertEqual(vm.todos.last!.completed,!initialState)
         
     }
 
+    func test_deleteTodo_removesItem(){
+        vm.newTitle = "New todo"
+        vm.addTodo()
+        let id = vm.todos.last!.id
+        let initialCount = vm.todos.count
+        vm.deleteTodo(with: [id])
+       XCTAssertEqual(vm.todos.count,initialCount-1)
+        XCTAssertFalse(vm.todos.contains(where:{$0.id == id}))
+    }
 }
