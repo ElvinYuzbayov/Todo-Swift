@@ -5,9 +5,10 @@ struct StatisticView: View {
     var body: some View {
         Form{
             Section("Overview"){
-                Text("All todos \(vm.allTodosCount)")
-                Text("Completed \(vm.completedTodosCount)")
-                Text("Pending \(vm.pendingTodosCount)")
+                Text("All todos: \(vm.allTodosCount)")
+                Text("Completed: \(vm.completedTodosCount)")
+                Text("Pending: \(vm.pendingTodosCount)")
+                Text("Completed percent: \(vm.completedPercent)%")
             }
         }
         .navigationTitle("Statistics")
@@ -16,6 +17,6 @@ struct StatisticView: View {
     }
 
 
-//#Preview {
-//    StatisticView(vm:TodoViewModel())
-//}
+#Preview {
+    StatisticView(vm:TodoViewModel())
+}

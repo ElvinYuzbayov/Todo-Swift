@@ -1,9 +1,3 @@
-//
-//  TodoViewModel.swift
-//  Todo
-//
-//  Created by Elvın Yuzbayov on 2026-02-19.
-//
 import Observation
 import Foundation
 
@@ -70,18 +64,22 @@ final class TodoViewModel{
         
     }
     
-    //Todo count
-    
+    //All counts
     var allTodosCount:Int{
        todos.count
     }
-        
+     //Completed counts
     var completedTodosCount:Int{
          todos.filter{$0.completed}.count
     }
-    
+    //Pending counts
     var pendingTodosCount:Int{
          todos.filter{!$0.completed}.count
+    }
+    //Percent of completed
+    var completedPercent:Int{
+    guard allTodosCount > 0 else {return 0}
+       return Int(Double(completedTodosCount) / Double(allTodosCount) * 100)
     }
     
     // PERSISTENCE
