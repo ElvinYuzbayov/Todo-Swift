@@ -13,7 +13,7 @@ struct SettingsView: View {
         Form{
             Section("Appearance"){
                 Picker("Theme",selection:$appTheme){
-                    ForEach(AppTheme.allCases){theme in
+                    ForEach(AppTheme.allCases,id:\.self){theme in
                         Text(theme.title).tag(theme)
                         
                     }

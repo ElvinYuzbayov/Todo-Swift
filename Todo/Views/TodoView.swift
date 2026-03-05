@@ -1,9 +1,20 @@
 import SwiftUI
 
 struct TodoView: View {
+    @State var searchText = ""
     @State var isFilteredSheetPresented = false
     @State var selectedFilteredCategory:TodoCategory? = nil
     @Bindable var vm:TodoViewModel
+    
+    var filteredTodos:[Todo]{
+        if searchText.isEmpty{
+            return visibleTodos
+        }
+        
+        return visibleTodos.filter{
+            $0.title.localizedCaseInsensitiveContains(searchText)
+        }
+    }
     
     var visibleTodos:[Todo]{
         guard let c = selectedFilteredCategory else {return vm.todos}
@@ -23,7 +34,7 @@ struct TodoView: View {
                     }
                 }else{
                     List{
-                        ForEach(visibleTodos){todo in
+                        ForEach(filteredTodos){todo in
                            HStack{
                                 Button{
                                     withAnimation{
@@ -42,13 +53,13 @@ struct TodoView: View {
                                 }
                                 
                             }.listRowBackground(todo.completed ? Color.green.opacity(0.1) : Color.gray.opacity(0.1))
-                        }
-                        
-                        .onDelete{offsets in
+                        }.onDelete{offsets in
                             let ids = offsets.map {visibleTodos[$0].id}
                             vm.deleteTodo(with:ids)
                         }
                     }
+                    .navigationTitle("Todos")
+                    .searchable(text: $searchText,prompt:"Search your task")
                 }
                 
              

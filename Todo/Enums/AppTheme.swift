@@ -8,12 +8,10 @@
 import Foundation
 import SwiftUI
 
-enum AppTheme : String,CaseIterable,Identifiable{
+enum AppTheme : String,CaseIterable{
     case system
     case light
     case dark
-    
-    var id:String {rawValue}
     
     var title:String{
         switch self{
@@ -25,9 +23,12 @@ enum AppTheme : String,CaseIterable,Identifiable{
     
     var colorScheme:ColorScheme?{
         switch self{
-        case .system: nil
-        case .light: .light
-        case .dark: .dark
+        case .system:
+            nil
+        case .light:
+                .light
+        case .dark:
+                .dark
         }
     }
     
