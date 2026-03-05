@@ -24,8 +24,7 @@ struct TabBarView: View {
             
             NavigationStack{
                 TodoView(vm:vm)
-                    .navigationTitle("Todos")
-            }.tabItem{
+             }.tabItem{
             Label("Todos",systemImage: "checklist")
             }.tag(Tab.todos)
             
@@ -34,7 +33,7 @@ struct TabBarView: View {
             }.tag(Tab.add)
            
             NavigationStack{
-                SettingsView()
+                SettingsView(vm:vm)
             }.tabItem{
                 Label("Setting",systemImage:"gearshape")
             }.tag(Tab.settings)

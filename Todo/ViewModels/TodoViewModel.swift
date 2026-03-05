@@ -69,7 +69,20 @@ final class TodoViewModel{
         setReminder(todoId:todoId,date:newDate)
         
     }
+    
+    //Todo count
+    
+    var allTodosCount:Int{
+       todos.count
+    }
         
+    var completedTodosCount:Int{
+         todos.filter{$0.completed}.count
+    }
+    
+    var pendingTodosCount:Int{
+         todos.filter{!$0.completed}.count
+    }
     
     // PERSISTENCE
     
