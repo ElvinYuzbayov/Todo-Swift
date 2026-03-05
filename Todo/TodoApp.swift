@@ -9,12 +9,14 @@ import SwiftUI
 
 @main
 struct TodoApp: App {
+    @AppStorage("appTheme") private var appTheme:AppTheme = .system
     init(){
         NotificationManager.shared.requestAuthorization()
     }
     var body: some Scene {
         WindowGroup {
-            TabBarView()
+         
+            TabBarView().preferredColorScheme(appTheme.colorScheme)
         }
     }
 }
