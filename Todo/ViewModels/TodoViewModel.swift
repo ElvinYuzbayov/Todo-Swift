@@ -76,7 +76,7 @@ final class TodoViewModel{
     var pendingTodosCount:Int{
          todos.filter{!$0.completed}.count
     }
-    //Percent of completed
+    //Percent of completion
     var completedPercent:Int{
     guard allTodosCount > 0 else {return 0}
        return Int(Double(completedTodosCount) / Double(allTodosCount) * 100)
