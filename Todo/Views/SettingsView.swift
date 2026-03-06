@@ -17,6 +17,11 @@ struct SettingsView: View {
                 }label:{
                     Label("Theme",systemImage:"moon")
                 }
+                NavigationLink{
+                    LanguageView()
+                }label:{
+                    Label("Language",systemImage:"globe")
+                }
             }
         }.navigationTitle("Settings")
 

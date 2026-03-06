@@ -48,17 +48,17 @@ struct TodoView: View {
             if visibleTodos.isEmpty {
                 VStack {
                     Image("emptyTodo")
-                    Text("What do you want to do today?").font(.title2)
-                    Text("Tap + to add your tasks").font(.title3)
+                    Text("what_do_you_want_to_do_today").font(.title2)
+                    Text("tap_to_add_your_tasks").font(.title3)
                 }
             }
         }
-        .searchable(text: $searchText, prompt: "Search your task")
+        .searchable(text: $searchText, prompt: "search_your_task")
         .navigationDestination(for: UUID.self) { id in
             if vm.todos.contains(where: { $0.id == id }) {
                 TodoDetail(todoId: id, vm: vm)
             } else {
-                Text("Todo not found")
+                Text("todo_not_found")
             }
         }
         .toolbar {

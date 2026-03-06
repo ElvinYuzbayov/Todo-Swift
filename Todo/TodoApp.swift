@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct TodoApp: App {
     @AppStorage("appTheme") private var appTheme:AppTheme = .system
+    @AppStorage("appLanguage") private var appLanguage:AppLanguage = .system
+    
     init(){
         NotificationManager.shared.requestAuthorization()
     }
@@ -17,6 +19,7 @@ struct TodoApp: App {
         WindowGroup {
          
             TabBarView().preferredColorScheme(appTheme.colorScheme)
+                .environment(\.locale,appLanguage.locale ?? .current)
         }
     }
 }

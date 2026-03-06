@@ -1,0 +1,20 @@
+"todos" = "Todos";
+"add_todo" = "Add Todo";
+"all_todos" = "All Todos";
+"done" = "Done";
+"completed" = "Completed";
+"pending" = "Pending";
+"settings" = "Settings";
+"search_your_task" = "Search your task";
+"category" = "Category";
+"all" = "All";
+"work" = "Work";
+"education" = "Education";
+"personal" = "Personal";
+"what_do_you_want_to_do_today" = "What do you want to do today?";
+"tap_to_add_your_tasks" = "Tap + to add your tasks";
+"todo_not_found"= "Todo not found";
+"reminder" = "Reminder";
+"remind_me" = "Remind me";
+"time" = "Time";
+

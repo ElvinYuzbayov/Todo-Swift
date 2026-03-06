@@ -14,20 +14,20 @@ struct TodoDetail: View {
     var body: some View {
         if let index = vm.todos.firstIndex(where:{$0.id == todoId}){
             Form{
-                Section("Todo"){
+                Section("todo"){
                     Text(vm.todos[index].title)
                     Text(vm.todos[index].category.rawValue)
                 }
                 
-                Section("Reminder"){
-                    Toggle("Remind me" ,isOn:Binding(
+                Section("reminder"){
+                    Toggle("remind_me" ,isOn:Binding(
                         get:{vm.todos[index].remindAt != nil}, //toggle on/off
                         set:{isOn in vm.setReminder(todoId: todoId, date: isOn ? Date() : nil )} //set default time
                     ))
                 }
                 
                 if let _ = vm.todos[index].remindAt{
-                    DatePicker("Time",selection: Binding(
+                    DatePicker("time",selection: Binding(
                         get:{vm.todos[index].remindAt ?? Date()},
                         set:{newDate in vm.updateReminder(todoId: todoId, newDate: newDate )}
                     ),
@@ -37,7 +37,7 @@ struct TodoDetail: View {
                 
             }
         }else{
-            ContentUnavailableView("Todo not found" ,systemImage: "exclamationmark.triangle")
+            ContentUnavailableView("todo_not_found" ,systemImage: "exclamationmark.triangle")
         }
         
     }

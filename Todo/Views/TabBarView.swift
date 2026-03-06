@@ -1,10 +1,3 @@
-//
-//  TabBarView.swift
-//  Todo
-//
-//  Created by Elvın Yuzbayov on 2026-02-19.
-//
-
 import SwiftUI
 
 struct TabBarView: View {
@@ -25,17 +18,17 @@ struct TabBarView: View {
             NavigationStack{
                 TodoView(vm:vm)
              }.tabItem{
-            Label("Todos",systemImage: "checklist")
+            Label("todos",systemImage: "checklist")
             }.tag(Tab.todos)
             
             Color.clear.tabItem{
-                Label("Add task",systemImage:"plus")
+                Label("add_todo",systemImage:"plus")
             }.tag(Tab.add)
            
             NavigationStack{
                 SettingsView(vm:vm)
             }.tabItem{
-                Label("Setting",systemImage:"gearshape")
+                Label("settings",systemImage:"gearshape")
             }.tag(Tab.settings)
            
         }.onChange(of:selectedTab){
@@ -47,11 +40,11 @@ struct TabBarView: View {
             }
         }.sheet(isPresented:$isAddPresented){
             NavigationStack{
-                AddTodoView(vm:vm).navigationTitle("Add todo")
+                AddTodoView(vm:vm).navigationTitle("add_todo")
                     .toolbar{
                      
                         ToolbarItem(placement:.topBarTrailing){
-                            Button("Done"){isAddPresented = false}
+                            Button("done"){isAddPresented = false}
                         }
                     }
             }.presentationDetents([.medium,.large])
