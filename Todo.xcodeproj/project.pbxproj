@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2FAD57FE2F5B60BB000897FD /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 2FAD57FC2F5B60B6000897FD /* Readme.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		2F7D8F512F4ECFCC0027530A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -17,8 +21,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F7D8F4D2F4ECFCC0027530A /* TodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2FDD6C9F2F47845800E39C55 /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F7D8F4D2F4ECFCC0027530A /* TodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = TodoTests.xctest; path = "/Users/elvinyuzbayov/Desktop/Todo/build/Debug-iphoneos/Todo.app/PlugIns/TodoTests.xctest"; sourceTree = "<absolute>"; };
+		2FAD57FC2F5B60B6000897FD /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		2FDD6C9F2F47845800E39C55 /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Todo.app; path = "/Users/elvinyuzbayov/Desktop/Todo/build/Debug-iphoneos/Todo.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -57,17 +62,8 @@
 			children = (
 				2FDD6CA12F47845800E39C55 /* Todo */,
 				2F7D8F4E2F4ECFCC0027530A /* TodoTests */,
-				2FDD6CA02F47845800E39C55 /* Products */,
+				2FAD57FC2F5B60B6000897FD /* Readme.md */,
 			);
-			sourceTree = "<group>";
-		};
-		2FDD6CA02F47845800E39C55 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2FDD6C9F2F47845800E39C55 /* Todo.app */,
-				2F7D8F4D2F4ECFCC0027530A /* TodoTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +144,7 @@
 			mainGroup = 2FDD6C962F47845800E39C55;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 2FDD6CA02F47845800E39C55 /* Products */;
+			productRefGroup = 2FDD6C962F47845800E39C55;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -170,6 +166,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FAD57FE2F5B60BB000897FD /* Readme.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
