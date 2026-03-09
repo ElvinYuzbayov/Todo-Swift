@@ -14,6 +14,7 @@ struct LanguageView: View {
                 }
             }
         }
+        .navigationTitle("app_language")
     }
 }
 

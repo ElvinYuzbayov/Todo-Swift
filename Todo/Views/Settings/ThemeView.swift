@@ -12,7 +12,7 @@ struct ThemeView: View {
     var body: some View {
         Form{
             Section("appearance"){
-                Picker("Theme",selection: $appTheme){
+                Picker("theme",selection: $appTheme){
                     ForEach(AppTheme.allCases,id:\.self){theme in Text(theme.rawValue).tag(theme)}
                 }
             }

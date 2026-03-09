@@ -3,6 +3,7 @@ import SwiftUI
 struct SettingsView: View {
     @Bindable var vm:TodoViewModel
     @AppStorage("appTheme") private var appTheme:AppTheme = .system
+    @AppStorage("appLanguage") private var appLanguage: String = "en"
     var body: some View {
         Form{
          
@@ -23,7 +24,14 @@ struct SettingsView: View {
                     Label("language",systemImage:"globe")
                 }
             }
-        }.navigationTitle("settings")
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("settings")
+            }
+        }
+            
 
     }
 }

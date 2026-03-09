@@ -2,8 +2,9 @@ import SwiftUI
 
 struct StatisticView: View {
     @Bindable var vm: TodoViewModel
-    
+   
     var body: some View {
+       
         Form {
             Section("overview") {
                 Label {
@@ -20,6 +21,7 @@ struct StatisticView: View {
                 Label {
                     HStack {
                         Text("completed")
+                       
                         Spacer()
                         Text("\(vm.completedTodosCount)")
                             .foregroundStyle(.secondary)
