@@ -1,6 +1,6 @@
 "todos" = "Todos";
-"add_todo" = "Add Todo";
-"all_todos" = "All Todos";
+"add_todo" = "Add todo";
+"all_todos" = "All todos";
 "done" = "Done";
 "completed" = "Completed";
 "pending" = "Pending";
@@ -17,4 +17,11 @@
 "reminder" = "Reminder";
 "remind_me" = "Remind me";
 "time" = "Time";
-
+"new_todo" = "New todo";
+"appearance" = "Appearance";
+"theme" = "Theme";
+"overview" = "Overview";
+"statistic" = "Statistic";
+"language" = "Language";
+"app_language" = "App language";
+"completion_progress" = "Completion progress";

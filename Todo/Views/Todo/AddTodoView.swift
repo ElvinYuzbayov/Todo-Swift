@@ -14,7 +14,7 @@ struct AddTodoView: View {
         VStack(){
             
   //          TextField
-            TextField("New todo",text:$vm.newTitle).padding(.horizontal,12)
+            TextField("new_todo",text:$vm.newTitle).padding(.horizontal,12)
                 .textFieldStyle(.roundedBorder).onSubmit {
                     vm.addTodo()
                 }
@@ -23,7 +23,7 @@ struct AddTodoView: View {
                 //Picker
 
                 Menu {
-                    Picker("Category", selection: $vm.selectedCategory) {
+                    Picker("category", selection: $vm.selectedCategory) {
                         ForEach(TodoCategory.allCases, id: \.self) { cat in
                             Text(cat.rawValue).tag(cat)
                         }

@@ -5,14 +5,43 @@ struct StatisticView: View {
     
     var body: some View {
         Form {
-            Section("Overview") {
-                Label("All todos: \(vm.allTodosCount)", systemImage: "list.bullet")
-                Label("Completed: \(vm.completedTodosCount)", systemImage: "checkmark.circle")
-                Label("Pending: \(vm.pendingTodosCount)", systemImage: "clock")
-                
-                VStack(alignment: .leading, spacing: 10) {
+            Section("overview") {
+                Label {
                     HStack {
-                        Label("Completion progress", systemImage: "chart.bar")
+                        Text("all_todos")
+                        Spacer()
+                        Text("\(vm.allTodosCount)")
+                            .foregroundStyle(.secondary)
+                    }
+                } icon: {
+                    Image(systemName: "list.bullet")
+                }
+
+                Label {
+                    HStack {
+                        Text("completed")
+                        Spacer()
+                        Text("\(vm.completedTodosCount)")
+                            .foregroundStyle(.secondary)
+                    }
+                } icon: {
+                    Image(systemName: "checkmark.circle")
+                }
+
+                Label {
+                    HStack {
+                        Text("pending")
+                        Spacer()
+                        Text("\(vm.pendingTodosCount)")
+                            .foregroundStyle(.secondary)
+                    }
+                } icon: {
+                    Image(systemName: "clock")
+                }
+                
+              VStack(alignment: .leading, spacing: 10) {
+                    HStack {
+                        Label("completion_progress", systemImage: "chart.bar")
                         Spacer()
                         Text("\(vm.completedPercent)%")
                             .foregroundStyle(.secondary)
@@ -23,7 +52,7 @@ struct StatisticView: View {
                 .padding(.top, 6)
             }
         }
-        .navigationTitle("Statistics")
+        .navigationTitle("statistic")
     }
 }
 

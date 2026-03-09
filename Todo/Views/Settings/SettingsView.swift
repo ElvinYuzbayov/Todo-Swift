@@ -10,20 +10,20 @@ struct SettingsView: View {
                 NavigationLink{
                     StatisticView(vm:vm)
                 } label:{
-                    Label("Statistic",systemImage:"chart.bar")
+                    Label("statistic",systemImage:"chart.bar")
                 }
                 NavigationLink{
                     ThemeView()
                 }label:{
-                    Label("Theme",systemImage:"moon")
+                    Label("theme",systemImage:"moon")
                 }
                 NavigationLink{
                     LanguageView()
                 }label:{
-                    Label("Language",systemImage:"globe")
+                    Label("language",systemImage:"globe")
                 }
             }
-        }.navigationTitle("Settings")
+        }.navigationTitle("settings")
 
     }
 }

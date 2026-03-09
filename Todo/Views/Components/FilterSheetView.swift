@@ -13,8 +13,8 @@ struct FilterSheetView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Picker("Category", selection: $selectedCategory) {
-                    Text("All").tag(TodoCategory?.none)     // nil
+                Picker("category", selection: $selectedCategory) {
+                    Text("all").tag(TodoCategory?.none)     // nil
                     ForEach(TodoCategory.allCases, id: \.self) { cat in
                         Text(cat.rawValue).tag(Optional(cat)) // TodoCategory?
                     }
@@ -23,7 +23,7 @@ struct FilterSheetView: View {
             
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { dismiss() }
+                    Button("done") { dismiss() }
                 }
             }
         }
